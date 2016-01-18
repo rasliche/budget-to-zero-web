@@ -3,20 +3,45 @@
 <head>
   <title>BudgetToZero</title>
 
+  <!-- Styles -->
+  <link rel="stylesheet" src="css/pure.css">
+
   <!-- Include Scripts -->
   <script type="text/javascript" src="js/vue.js"></script>
-  <script type="text/javascript" scr="js/localforage.js"></script>
+  <script type="text/javascript" src="js/localforage.js"></script>
 </head>
 <body>
-  <h1>Transactions</h1>
   <div id="app">
-    <input v-model="newTransaction" v-on:keyup.enter="addTransaction">
-    <ul>
-      <li v-for="transaction in transactions">
-        <span>{{ transaction }}</span>
-        <button v-on:click="removeTransaction($index)">X</button>
-      </li>
-    </ul>
+    <h1>Transactions</h1>
+    <table class="pure-table">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Target</th>
+            <th>Category</th>
+            <th>Flow</th>
+            <th>Delete</th>
+        </tr>
+        <tr>
+            <th><input v-model="newTransaction.date" placeholder="{{ new Date(); }}"></th>
+            <th><input v-model="newTransaction.target" placeholder="target"></th>
+            <th><input v-model="newTransaction.category" placeholder="category"></th>
+            <th><input v-model="newTransaction.flow" placeholder="flow"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr v-for="transaction in transactions">
+            <td>{{ transaction.date }}</td>
+            <td>{{ transaction.target }}</td>
+            <td>{{ transaction.category }}</td>
+            <td>{{ transaction.flow }}</td>
+            <td><button v-on:click="removeTransaction($index)">X</button></td>
+        </tr>
+
+    </tbody>
+  </table>
+  <h3>Running Balance: ${{ balance }}</h3>
+
   </div>
 
 
