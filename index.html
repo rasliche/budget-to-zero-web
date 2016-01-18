@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BudgetToZero</title>
+
+  <!-- Include Scripts -->
+  <script type="text/javascript" src="js/vue.js"></script>
+  <script type="text/javascript" scr="js/localforage.js"></script>
+</head>
+<body>
+  <h1>Transactions</h1>
+  <div id="app">
+    <input v-model="newTransaction" v-on:keyup.enter="addTransaction">
+    <ul>
+      <li v-for="transaction in transactions">
+        <span>{{ transaction }}</span>
+        <button v-on:click="removeTransaction($index)">X</button>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- Custom Scripts -->
+
+  <script type="text/javascript" src="js/store.js"></script>
+  <script type="text/javascript" src="js/app.js"></script>
+  <script type="text/javascript" scr="js/routes.js"></script>
+</body>
+</html>
