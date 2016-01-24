@@ -5,11 +5,9 @@ var VueRouter = require('vue-router')
 // Install the VueRouter with Vue
 Vue.use(VueRouter)
 
-// require a *.vue component
-// var Base = Vue.extend({})
-
 // Require Components
 var App = require('./components/App.vue') // Main Structure
+var HomeView = require('./components/Home.vue') // Landing/Summary
 // Sub-Components
 var TransactionsView = require('./components/Transactions.vue')
 var BudgetView = require('./components/Budget.vue')
@@ -21,16 +19,24 @@ var router = new VueRouter()
 
 // Map routes to components
 router.map({
+  '/': {
+    component: HomeView
+  },
+
   '/transactions': {
-    component: require('./components/Transactions.vue')
+    component: TransactionsView
   },
 
   '/budget': {
-    component: require('./components/Budget.vue')
+    component: BudgetView
   },
 
   '/accounts': {
-    component: require('./components/Accounts.vue')
+    component: AccountsView
+  },
+
+  '/reports': {
+    component: ReportsView
   }
 })
 
