@@ -1,0 +1,12 @@
+body {
+  font-size: 80%;
+}
+
+.sidebar {
+  display: inline-block;
+}
+
+.content {
+  display: inline-block;
+  width: 90vw;
+}
