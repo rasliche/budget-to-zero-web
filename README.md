@@ -2,8 +2,9 @@ BtZ is a zero-based budget system to help you get your finances on track and sto
 
 The intent is to use the following technologies for educational purposes, though they are subject to change at any time:
 - Vue
-
-I'm going to use Vue Components with a root Vue Component/instance(?) with vue-router. Each page should be its own component.
+- vue-router
+- vuex
+- D3
 
 Can I register the components with only the data they need? (if there's ever data they don't need)
 

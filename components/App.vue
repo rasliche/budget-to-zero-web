@@ -17,6 +17,7 @@
 </template>
 
 <script>
+  var store = require('../store.js')
 </script>
 
 <style>
