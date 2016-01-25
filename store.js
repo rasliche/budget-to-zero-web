@@ -1,9 +1,18 @@
-var Vuex = require('vuex')
+import Vue from 'vue'
+import Vuex from 'vuex'
 
+// Tell Vue to use Vuex
 Vue.use(Vuex)
-var store = new Vuex.Store({
+
+// Define the mutation variables
+const ADD_TRANSACTION = 'ADD_TRANSACTION'
+
+// export the store
+export default new Vuex.Store({
   state: { },
+
   mutations: { },
+
   actions: { },
   strict: true // the anti-intern device
 })

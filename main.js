@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 // Require Components
 var App = require('./components/App.vue') // Main Structure
 var HomeView = require('./components/Home.vue') // Landing/Summary
-// Sub-Components
+// Sub-Component pages
 var TransactionsView = require('./components/Transactions.vue')
 var BudgetView = require('./components/Budget.vue')
 var AccountsView = require('./components/Accounts.vue')
