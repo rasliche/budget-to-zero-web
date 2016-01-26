@@ -4,51 +4,12 @@
   <title>BudgetToZero</title>
 
   <!-- Styles -->
-  <link rel="stylesheet" href="css/pure.css">
+  <link rel="stylesheet" href="./css/pure.css">
+  <link rel="stylesheet" href="./css/main.css">
 
-  <!-- Include Scripts -->
-  <script type="text/javascript" src="js/vue.js"></script>
-  <script type="text/javascript" src="js/localforage.js"></script>
 </head>
 <body>
-  <div id="app">
-    <h1>Transactions</h1>
-    <table class="pure-table">
-    <thead>
-        <tr>
-            <th>Date</th>
-            <th>Target</th>
-            <th>Category</th>
-            <th>Flow</th>
-            <th>Delete</th>
-        </tr>
-        <tr v-on:keyup.enter="addTransaction">
-            <th><input v-model="transaction.date" placeholder="{{ new Date(); }}"></th>
-            <th><input v-model="transaction.target" placeholder="target"></th>
-            <th><input v-model="transaction.category" placeholder="category"></th>
-            <th><input v-model="transaction.flow" placeholder="flow"></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr v-for="transaction in transactions">
-            <td>{{ transaction.date }}</td>
-            <td>{{ transaction.target }}</td>
-            <td>{{ transaction.category }}</td>
-            <td>{{ transaction.flow }}</td>
-            <td><button v-on:click="removeTransaction($index)">X</button></td>
-        </tr>
-    </tbody>
-  </table>
-  <h3>Running Balance: ${{ balance }}</h3>
-  <!-- <button v-on:click="saveAccount">Save</button>
-  <button v-on:click="getAccount">Restore</button> -->
-  </div>
-
-
-  <!-- Custom Scripts -->
-
-  <script type="text/javascript" src="js/store.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
-  <script type="text/javascript" scr="js/routes.js"></script>
+  <app></app>
+  <script src="build.js"></script>
 </body>
 </html>
