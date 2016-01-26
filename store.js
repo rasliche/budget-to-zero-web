@@ -5,14 +5,22 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 
 // Define the mutation variables
-const ADD_TRANSACTION = 'ADD_TRANSACTION'
+const SOME_MUTATION = 'SOME_MUTATION'
 
 // export the store
 export default new Vuex.Store({
-  state: { },
+  state: {
+    transactions: [1,2]
+  },
 
-  mutations: { },
+  mutations: {
+    [SOME_MUTATION] (state) {
+      // mutate state
+    }
+  },
 
-  actions: { },
+  actions: {
+     // get called by components
+  },
   strict: true // the anti-intern device
 })
