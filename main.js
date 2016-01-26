@@ -2,8 +2,13 @@
 var Vue = require('vue')
 var VueRouter = require('vue-router')
 
+Vue.config.debug = true
 // Install the VueRouter with Vue
 Vue.use(VueRouter)
+
+// Require PouchDB
+var Pouch = require('pouchdb')
+var transactionsdb = new Pouch('transactions')
 
 // Require Components
 var App = require('./components/App.vue') // Main Structure
