@@ -1,5 +1,5 @@
 <template>
-  <h1 class="pure-menu-heading">Budget</h1>
+<h1 class="pure-menu-heading">Budget</h1>
 </template>
 
 <script>

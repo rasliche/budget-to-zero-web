@@ -1,44 +1,36 @@
 <template>
-  <div class="app container-fluid">
-    <nav class="nav navbar-fixed-top">
-      <a class="btn btn-default" v-link="{ path: '/' }">Budget to Zero</a>
-      <a class="btn btn-default" v-link="{ path: '/transactions' }">Transactions</a>
-      <a class="btn btn-default" v-link="{ path: '/budget' }">Budget</a>
-      <a class="btn btn-default" v-link="{ path: '/accounts' }">Accounts</a>
-      <a class="btn btn-default" v-link="{ path: '/reports' }">Reports</a>
-      <a class="">Goals</a>
-      <a class="">Debt Payoff</a>
-      <a class="">Calendar</a>
-      <a class="">Asset Worth</a>
-      <a class="">Investments</a>
-      <a class="">Hot Spots</a>
-      </ul>
-    </nav>
+<div class="app pure-g">
+  <nav class="pure-menu pure-u sidebar">
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a class="pure-menu-link" v-link="{ path: '/' }">Budget to Zero</a>
+      <li class="pure-menu-item"><a class="pure-menu-link" v-link="{ path: '/transactions' }">Transactions</a>
+      <li class="pure-menu-item"><a class="pure-menu-link" v-link="{ path: '/budget' }">Budget</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link" v-link="{ path: '/accounts' }">Accounts</a></li>
+    </ul>
+    <ul class="pure-menu-list">
+      <li class="pure-menu-item"><a class="pure-menu-link" v-link="{ path: '/reports' }">Reports</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link">Goals</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link">Debt Payoff</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link">Calendar</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link">Asset Worth</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link">Investments</a></li>
+      <li class="pure-menu-item"><a class="pure-menu-link">Hot Spots</a></li>
+    </ul>
+  </nav>
 
-    <div class="row">
-      <div class="col-md-3">
-      </div>
-
-      <div class="content col-md-9">
-        <header>
-          <p>Heading</p>
-        </header>
-        <router-view></router-view>
-      </div> <!-- Content -->
-    </div> <!-- .container -->
-  </div> <!-- App -->
+  <div class="content pure-u">
+    <router-view></router-view>
+  </div> <!-- Content -->
+</div> <!-- App -->
 </template>
 
 <script>
-  var store = require('../store.js')
+var store = require('../store.js')
 </script>
 
 <style>
-body {
-  padding-top: 50px;
-}
-
-.content {
-  padding-left: auto;
+.sidebar {
+  height: 100vh;
+  width: 150px;
 }
 </style>
