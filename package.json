@@ -34,6 +34,8 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "d3": "^3.5.13",
+    "pouchdb": "^5.2.0",
     "vue": "^1.0.15",
     "vue-router": "^0.7.10",
     "vuex": "^0.2.0"
