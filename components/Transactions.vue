@@ -1,56 +1,57 @@
 <template>
-<h1 class="pure-menu-heading">Transactions</h1>
-<table class="pure-table pure-table-horizontal">
+<header>
+  <h1>Transactions</h1>
+</header>
+<section class="row">
+  <div class="col-sm-9">
+<table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th>Account</th>
-      <th>Date</th>
-      <th>Target</th>
-      <th>Category</th>
-      <th>Memo</th>
-      <th>Flow</th>
-    </tr>
-    <tr>
-      <th><input placeholder="Account" v-model="newtransaction.account"></th>
-      <th><input style="width:100px;" placeholder="Date" v-model="newtransaction.date"></th>
-      <th><input placeholder="Target"  v-model="newtransaction.target"></th>
-      <th><input placeholder="Category" v-model="newtransaction.category"></th>
-      <th><input placeholder="Memo" v-model="newtransaction.memo"></th>
-      <th><input style="width:60px;" placeholder="Flow" v-model="newtransaction.flow"></th>
-      <th><button v-on:click="addTransaction()"></th>
+      <th v-for="key in transactionkeys">
+        {{ key }}
+      </th>
     </tr>
   </thead>
   <tbody>
     <tr v-for="transaction in transactions">
-      <td>{{ transaction.account }}</td>
-      <td>{{ transaction.date }}</td>
-      <td>{{ transaction.target }}</td>
-      <td>{{ transaction.category }}</td>
-      <td>{{ transaction.memo }}</td>
-      <td>{{ transaction.flow }}</td>
+      <td v-for="col in transaction">{{ transaction[$key] }}</td>
     </tr>
   </tbody>
 </table>
+</div>
+<div class="col-sm-3">
+<new-transaction-form>
+</new-transaction-form>
+</div>
+</section>
 </template>
 
 <script>
 var store = require('../store.js')
+var NewTransactionForm = require('./NewTransactionForm.vue')
 
 module.exports = {
-   computed: {
-     transactions() {
-       return store.state.transactions
-     },
-     newtransaction() {
-       return store.state.newtransaction
-     }
+  components: { 'new-transaction-form': NewTransactionForm },
+
+  computed: {
+   transactions() {
+     return store.state.transactions
    },
-  //  methods: {
-  //    store.actions
-  //  }
+
+   transactionkeys() {
+     return store.state.transactionkeys
+   }
+  },
+  methods: {
+     addTransaction: store.actions.addTransaction,
+
+     updateNewTransaction: function(e) {
+       console.log(e.target, e.target.value)
+       store.actions.updateNewTransaction(e.target.value, e.target)
+     }
+   }
 }
 </script>
 
 <style>
-
 </style>

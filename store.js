@@ -6,10 +6,13 @@ Vue.use(Vuex)
 
 // Define the mutation variables
 const ADD_TRANSACTION = 'ADD_TRANSACTION'
+const LOAD_TRANSACTION_DB = 'LOAD_TRANSACTION_DB'
+const UPDATE_NEW_TRANSACTION = 'UPDATE_NEW_TRANSACTION'
 
 // export the store
 module.exports = new Vuex.Store({
   state: {
+    transactionkeys: ['Account', 'Date', 'Target', 'Category', 'Memo', 'Flow'],
     newtransaction: {
       account: "",
       date: "",
@@ -19,10 +22,6 @@ module.exports = new Vuex.Store({
       flow: 0
     },
     transactions: [
-      {
-        account: "YAY",
-        date:"hey"
-      },
       {
         account: "Cash",
         date: "1/1/16",
@@ -51,13 +50,31 @@ module.exports = new Vuex.Store({
   },
 
   mutations: {
-    [ADD_TRANSACTION] (state, transaction) {
-      state.transactions.push(transaction)
+    [UPDATE_NEW_TRANSACTION] (state, nt) {
+      console.log(state.newtransaction.account)
+      state.newtransaction.account = nt
+    },
+
+    [ADD_TRANSACTION] (state) {
+      state.transactions.push(state.newTransaction)
+      state.newTransaction = {
+        account: "",
+        date: "",
+        target: "",
+        category: "",
+        memo: "",
+        flow: 0
+      }
+    },
+
+    [LOAD_TRANSACTION_DB] (state) {
+
     }
   },
 
   actions: {
-     addTransaction: ADD_TRANSACTION
+     addTransaction: ADD_TRANSACTION,
+     updateNewTransaction: UPDATE_NEW_TRANSACTION
   },
   strict: true // the anti-intern device
 })
