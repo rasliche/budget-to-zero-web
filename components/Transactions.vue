@@ -5,16 +5,11 @@
 <section class="row">
   <div class="col-sm-9">
 <table class="table table-striped table-condensed table-hover">
-  <thead>
-    <tr>
-      <th v-for="key in transactionkeys">
-        {{ key }}
-      </th>
-    </tr>
-  </thead>
   <tbody>
     <tr v-for="transaction in transactions">
-      <td v-for="col in transaction">{{ transaction[$key] }}</td>
+      <td>{{ transaction.category }}</td>
+      <td>{{ transaction.target }}</td>
+      <td>{{ transaction.flow }}</td>
     </tr>
   </tbody>
 </table>
@@ -33,23 +28,7 @@ var NewTransactionForm = require('./NewTransactionForm.vue')
 module.exports = {
   components: { 'new-transaction-form': NewTransactionForm },
 
-  computed: {
-   transactions() {
-     return store.state.transactions
-   },
-
-   transactionkeys() {
-     return store.state.transactionkeys
-   }
-  },
-  methods: {
-     addTransaction: store.actions.addTransaction,
-
-     updateNewTransaction: function(e) {
-       console.log(e.target, e.target.value)
-       store.actions.updateNewTransaction(e.target.value, e.target)
-     }
-   }
+  computed: {}
 }
 </script>
 
