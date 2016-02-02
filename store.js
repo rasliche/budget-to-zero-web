@@ -15,7 +15,30 @@ const UPDATE_NEW_TRANSACTION = 'UPDATE_NEW_TRANSACTION'
 module.exports = new Vuex.Store({
   state: {
     transactions: [
-
+      {
+      account: "Cash",
+      date: "1/1/16",
+      target: "5 Brothers 2",
+      category: "Restaurants",
+      memo: "Breakfast for A+E",
+      flow: -20
+    },
+    {
+      account: "Cash",
+      date: "1/8/16",
+      target: "Debbie",
+      category: "Rent",
+      memo: "+A",
+      flow: -325
+    },
+    {
+      account: "Cash",
+      date: "1/6/16",
+      target: "Money Market Checking",
+      category: "Transfer",
+      memo: "for Rent",
+      flow: 320
+    }
     ]
   },
 
