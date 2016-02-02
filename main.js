@@ -7,8 +7,8 @@ Vue.config.debug = true
 Vue.use(VueRouter)
 
 // Require PouchDB
-var Pouch = require('pouchdb')
-var transactionsdb = new Pouch('transactions')
+var PouchDB = require('pouchdb')
+var transactionsdb = new PouchDB('transactionsdb')
 
 // Require Components
 var App = require('./components/App.vue') // Main Structure
